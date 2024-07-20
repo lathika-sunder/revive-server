@@ -27,4 +27,6 @@ router.post("/register-user", checkSchema(userRegisterValidator) ,(req, res) => 
    
 })
 
+
+
 module.exports = router;

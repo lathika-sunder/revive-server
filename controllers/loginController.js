@@ -1,4 +1,4 @@
-const loginController = async (request, response,next) => {
+const loginController = async (request, response) => {
     const { username, password } = request.body;
 
     if (!username || !password) {

@@ -12,7 +12,7 @@ app.use(express.json())
 //connection to DB
 connectDB()
 //use all routes
-app.use("/api", routers);
+app.use("/api/v1", routers);
 
 //app.use('/api/v1',router);
 //router.use('/',loginRouter)
