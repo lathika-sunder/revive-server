@@ -1,24 +1,23 @@
 const express = require('express');
-const router=express.Router()
-const app=express()
-const loginRouter=require('./routes/authRoutes')
+const app = express()
+const routers = require("./routes/routers.js");
 const cors=require('cors')
-const dotenv=require('dotenv')
+const dotenv=require('dotenv');
+const { connectDB } = require('./models/db');
 dotenv.config()
 const PORT=process.env.PORT||4040
 
 app.use(cors())
 app.use(express.json())
+//connection to DB
+connectDB()
+//use all routes
+app.use("/api/v1", routers);
 
-app.use('/api/v1',router);
-router.use('/',loginRouter)
+//app.use('/api/v1',router);
+//router.use('/',loginRouter)
 
 
-
-router.get('/',(request,response)=>{
-    response.send("Hello, This is Revive Server")
-}
-)
 app.listen(PORT, () => {
     console.log(`App listening on port http://localhost:${PORT}`);
 });
